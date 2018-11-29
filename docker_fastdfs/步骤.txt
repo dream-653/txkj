@@ -1,0 +1,15 @@
+docker pull mypjb/fastdfs
+
+mkdir /data/fastdfs
+
+docker run --add-host fastdfs.net:10.167.35.81 --name fastdfs --net=host -e TRACKER_ENABLE=1 -e NGINX_PORT=80 -v /data/fastdfs:/storage/fastdfs -it mypjb/fastdfs
+
+
+exit
+
+
+docker restart fastdfs
+
+
+随便找个jpg文件，重命名为【wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg】，上传至【/home/fastdfs/data/00/00】文件夹中，在浏览器中输入：
+http://10.167.35.81/M00/00/00/wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg
